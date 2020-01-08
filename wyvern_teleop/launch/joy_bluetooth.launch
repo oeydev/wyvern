@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<launch>
+  <!-- topic name : /joy -->
+  <arg name="port" default="event16" doc="check evtest"/>
+  <arg name="joy_model" default="xbox360" />  
+  <node name="wyvern_joybluetooth" pkg="wyvern_teleop" type="joy_bluetooth.py">
+    <param name="port" value="$(arg port)"/>
+  </node>
+
+  <node name="joy2vel" pkg="wyvern_teleop" type="joy2vel.py" output="screen">
+    <rosparam file="$(find wyvern_teleop)/config/$(arg joy_model).yaml" command="load" ns="keymap" />
+    <remap from="cmd_vel" to="pre_cmd_vel"/>
+  </node>
+</launch>

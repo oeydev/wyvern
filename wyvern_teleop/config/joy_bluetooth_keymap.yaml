@@ -1,0 +1,79 @@
+A_down:
+  code: 305
+  type: 1
+  value: 1
+A_up:
+  code: 305
+  type: 1
+  value: 0
+
+B_down:
+  code: 307
+  type: 1
+  value: 1
+B_up:
+  code: 307
+  type: 1
+  value: 0
+
+C_down:
+  code: 304
+  type: 1
+  value: 1
+C_up:
+  code: 304
+  type: 1
+  value: 0
+
+D_down:
+  code: 308
+  type: 1
+  value: 1
+D_up:
+  code: 308
+  type: 1
+  value: 0
+
+T1_down:
+  code: 311
+  type: 1
+  value: 1
+T1_up:
+  code: 311
+  type: 1
+  value: 0
+
+T2_down:
+  code: 310
+  type: 1
+  value: 1
+T2_up:
+  code: 310
+  type: 1
+  value: 0
+
+x_left:
+  code: 0
+  type: 3
+  value: 0
+x_center:
+  code: 0
+  type: 3
+  value: 1
+x_right:
+  code: 0
+  type: 3
+  value: 2
+
+y_up:
+  code: 1
+  type: 3
+  value: 0
+y_center:
+  code: 1
+  type: 3
+  value: 1
+y_down:
+  code: 1
+  type: 3
+  value: 2

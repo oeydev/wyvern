@@ -1,0 +1,9 @@
+lin_vel_x: 1 
+lin_vel_y: 0
+ang_vel_z: 2
+lin_speed_up: 4
+lin_speed_down: 0
+ang_speed_up: 3
+ang_speed_down: 1
+reset: 6
+break: 7
