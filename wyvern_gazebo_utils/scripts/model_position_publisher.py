@@ -6,7 +6,7 @@ from gazebo_msgs.msg import ModelStates
 from geometry_msgs.msg import Pose2D, Twist
 from tf.transformations import euler_from_quaternion
 
-parse = argparse.ArgumentParser(description="Publish gazebo robot's position topic:= /robot_pose")
+parse = argparse.ArgumentParser(description="Publish gazebo robot's position input topic:= /robot_pose")
 parse.add_argument("model", help="model name", type=str)
 parse.add_argument("-f", "--freq", help="publish frequency", default=30, type=float)
 args = parse.parse_args()
