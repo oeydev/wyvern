@@ -7,7 +7,7 @@ from geometry_msgs.msg import Twist
 from sensor_msgs.msg import Joy
 
 msg = """
-Control Your Mecanion!
+Control Your Robot!
 ---------------------------
 Moving around by Analog (Don't forget enable MODE on joystick) :
     Linear -- Left Analog
@@ -26,8 +26,8 @@ class joy2vel():
 
         self.omni = rospy.get_param("/config/omni", default=False)
         self.config = rospy.get_param("~keymap")
-        self.LIMIT_LIN_VEL = rospy.get_param("/config/limit_lin_vel", 0.6)
-        self.LIMIT_ANG_VEL = rospy.get_param("/config/limit_ang_vel", 1.0)
+        self.LIMIT_LIN_VEL = rospy.get_param("/config/limit_lin_vel", 1.2)
+        self.LIMIT_ANG_VEL = rospy.get_param("/config/limit_ang_vel", 1.8)
         self.LIN_VEL_STEP_SIZE = self.LIMIT_LIN_VEL / 4.0
         self.ANG_VEL_STEP_SIZE = self.LIMIT_ANG_VEL / 4.0
         self.LIN_VEL = self.LIMIT_LIN_VEL / 2.0

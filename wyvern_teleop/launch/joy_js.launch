@@ -4,7 +4,7 @@
   <arg name="joy_port" default="js0" doc="check $ls /dev/input"/>
   <param name="joy_port" value="/dev/input/$(arg joy_port)"/>
   <node name="wyvern_teleop" pkg="wyvern_joy" type="joy_node"/>
-  <node name="wyvern_teleop" pkg="joy2vel.py" type="joy_to_velocity">
+  <node name="wyvern_teleop" pkg="teleop_joy.py" type="joy_to_velocity">
   <rosparam file="$(find wyvern_teleop)/config/$(arg joy_model).yaml" command="load" ns="keymap" />
   </node>
 </launch>
