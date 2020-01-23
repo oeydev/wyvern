@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<launch>
+  <!-- topic name : /joy -->
+  <arg name="joy_port" default="js0" doc="check $ls /dev/input"/>
+  <arg name="joy_model" default="nobi" />  
+  <arg name="limit_lin_vel" default="1.2" />  
+  <arg name="limit_ang_vel" default="1.8" />  
+
+
+  <param name="/config/limit_lin_vel" value="$(arg limit_lin_vel)"/>
+  <param name="/config/limit_ang_vel" value="$(arg limit_ang_vel)"/>
+
+  <param name="joy_port" value="/dev/input/$(arg joy_port)"/>
+  <node name="joy_publisher" pkg="wyvern_teleop" type="joy_node"/>
+  <node name="teleop_joy" pkg="wyvern_teleop" type="teleop_joy.py">
+    <rosparam file="$(find wyvern_teleop)/config/$(arg joy_model).yaml" command="load" ns="keymap" />
+  </node>
+</launch>

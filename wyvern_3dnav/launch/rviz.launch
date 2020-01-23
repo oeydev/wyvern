@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<launch>
+    <arg name="file" default="3d_nav_dept"/>
+    <arg name="frame" default="map"/>
+    <node pkg="rviz" type="rviz" name="rviz" args="-d $(find wyvern_3dnav)/rviz/$(arg file).rviz -f $(arg frame)"/>
+</launch>
+    

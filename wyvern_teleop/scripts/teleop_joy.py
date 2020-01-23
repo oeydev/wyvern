@@ -5,6 +5,8 @@
 import rospy
 from geometry_msgs.msg import Twist
 from sensor_msgs.msg import Joy
+import argparse
+
 
 msg = """
 Control Your Robot!
@@ -26,7 +28,7 @@ class joy2vel():
 
         self.omni = rospy.get_param("/config/omni", default=False)
         self.config = rospy.get_param("~keymap")
-        self.LIMIT_LIN_VEL = rospy.get_param("/config/limit_lin_vel", 1.2)
+        self.LIMIT_LIN_VEL = rospy.get_param("/config/limit_lin_vel", 1.0)
         self.LIMIT_ANG_VEL = rospy.get_param("/config/limit_ang_vel", 1.8)
         self.LIN_VEL_STEP_SIZE = self.LIMIT_LIN_VEL / 4.0
         self.ANG_VEL_STEP_SIZE = self.LIMIT_ANG_VEL / 4.0
@@ -35,7 +37,7 @@ class joy2vel():
         self.SEQ = 0
 
         self.sub_joy = rospy.Subscriber('joy', Joy, self.callback)
-        self.pub = rospy.Publisher('cmd_vel', Twist, queue_size=10)
+        self.pub = rospy.Publisher("/cmd_vel", Twist, queue_size=10)
 
         self.twist = Twist()
         self.emergency_break = False
@@ -104,7 +106,7 @@ class joy2vel():
 
 if __name__ == "__main__":
 
-    rospy.init_node('mecanion_joy2vel')
+    rospy.init_node('teleop_joy_to_velocity')
     joycmd = joy2vel()
     try:
         print msg
