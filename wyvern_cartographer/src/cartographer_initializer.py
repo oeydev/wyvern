@@ -19,8 +19,8 @@ def init_callback(data):
     flag = True
     x = data.pose.pose.position.x - homogeneous[0]
     y = data.pose.pose.position.y - homogeneous[1]
-    q = data.pose.pose.orientation - homogeneous[2]
-    yaw = euler_from_quaternion([q.x, q.y, q.z, q.w])[2]
+    q = data.pose.pose.orientation
+    yaw = euler_from_quaternion([q.x, q.y, q.z, q.w])[2] - homogeneous[2]
     # x = round(x, 3)
     # y = round(y, 3)
     # yaw = round(yaw, 3)
