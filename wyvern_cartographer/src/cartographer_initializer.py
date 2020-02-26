@@ -17,14 +17,17 @@ package_name = ""
 def init_callback(data):
     global last_id, flag, x, y, yaw
     flag = True
-    x = data.pose.pose.position.x
-    y = data.pose.pose.position.y
-    q = data.pose.pose.orientation
-    yaw = euler_from_quaternion([q.x, q.y, q.z, q.w])[2]
-    # x = data.pose.pose.position.x - homogeneous[0]
-    # y = data.pose.pose.position.y - homogeneous[1]
+    # x = data.pose.pose.position.x
+    # y = data.pose.pose.position.y
     # q = data.pose.pose.orientation
-    # yaw = euler_from_quaternion([q.x, q.y, q.z, q.w])[2] - homogeneous[2]
+    # yaw = euler_from_quaternion([q.x, q.y, q.z, q.w])[2]
+    rospy.logwarn("homogeneous : {}".format(homogeneous))
+
+    x = data.pose.pose.position.x - homogeneous[0]
+    y = data.pose.pose.position.y - homogeneous[1]
+    q = data.pose.pose.orientation
+    yaw = euler_from_quaternion([q.x, q.y, q.z, q.w])[2] - homogeneous[2]
+
     # x = round(x, 3)
     # y = round(y, 3)
     # yaw = round(yaw, 3)
